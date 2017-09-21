@@ -13,7 +13,7 @@ class CreateDepotTable extends Migration
      */
     public function up()
     {
-        Schema::table('depot', function (Blueprint $table) {
+        Schema::create('depots', function (Blueprint $table) {
             $table->increments('id');
             $table->text('description');
             $table->integer('type');
@@ -28,8 +28,6 @@ class CreateDepotTable extends Migration
      */
     public function down()
     {
-        Schema::table('depot', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('depots');
     }
 }
