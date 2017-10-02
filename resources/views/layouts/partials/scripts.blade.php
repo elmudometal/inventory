@@ -14,8 +14,8 @@
 <!-- Sparkline -->
 <script src="{{ url('/js/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
 <!-- jvectormap -->
-<script src="{{ url('/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ url('/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ url('/js/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ url('/js/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <!-- jQuery Knob Chart -->
 <script src="{{ url('/js/jquery-knob/dist/jquery.knob.min.js') }}"></script>
 <!-- daterangepicker -->
@@ -29,3 +29,4 @@
 <script src="{{ url('/js/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('/js/adminlte.min.js') }}"></script>
+@yield('footer_scripts')

@@ -10,7 +10,7 @@
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> 
+          <a href="#"><i class="fa fa-circle text-success"></i>
           {{ trans('adminlte_lang::message.online') }}</a>
         </div>
       </div>
@@ -37,9 +37,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Almacen</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>          
-            <li><a href="#"><i class="fa fa-circle-o"></i>Productos</a></li>
+            <li><a href="{{ url('/depot') }}"><i class="fa fa-circle-o"></i>Almacen</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>
+            <li><a href="{{ url('/product') }}"><i class="fa fa-circle-o"></i>Productos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -51,8 +51,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle-o"></i>Proveedores</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Compras</a></li>          
-            <li><a href="#"><i class="fa fa-circle-o"></i>Historial de Entradas</a></li>
+            <li><a href="{{ url('/entryAdd') }}"><i class="fa fa-circle-o"></i>Entradas</a></li>
+            <li><a href="{{ url('/entry') }}"><i class="fa fa-circle-o"></i>Historial de Entradas</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -63,9 +63,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Personal</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Ordenes de Entrega</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Historial de Salidas</a></li>
+            <li><a href="{{ url('/entryAdd') }}"><i class="fa fa-circle-o"></i>Personal</a></li>
+            <li><a href="{{ url('/egressAdd') }}"><i class="fa fa-circle-o"></i>Ordenes de Entrega</a></li>
+            <li><a href="{{ url('/egress') }}"><i class="fa fa-circle-o"></i>Historial de Salidas</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -98,7 +98,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Agregar</a></li>            
+            <li><a href="#"><i class="fa fa-circle-o"></i>Agregar</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>Listado</a></li>
           </ul>
         </li>

@@ -5,8 +5,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{ asset('/css/all.css') }}" rel="stylesheet" type="text/css" />
-
 
 
 <!-- Bootstrap 3.3.7 -->
@@ -15,6 +13,10 @@
   <link rel="stylesheet" href="{{ asset('/js/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('/js/Ionicons/css/ionicons.min.css') }}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('/js/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('/js/select2/dist/css/select2.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('/css/AdminLTE.min.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -42,18 +44,5 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-        //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
-        window.trans = @php
-            // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
-            $lang_files = File::files(resource_path() . '/lang/' . App::getLocale());
-            $trans = [];
-            foreach ($lang_files as $f) {
-                $filename = pathinfo($f)['filename'];
-                $trans[$filename] = trans($filename);
-            }
-            $trans['adminlte_lang_message'] = trans('message');
-            echo json_encode($trans);
-        @endphp
-    </script>
+    
 </head>
