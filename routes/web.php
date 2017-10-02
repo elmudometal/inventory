@@ -30,3 +30,8 @@ Route::post('/productAdd', 'InventoryController@productNew');
 Route::get('/entry', 'InventoryController@entry');
 Route::get('/entryAdd', 'InventoryController@entryAdd');
 Route::post('/entryAdd', 'InventoryController@entryNew');
+
+
+//personals
+
+Route::get('/registrer', 'Auth\RegisterController@showRegistrationForm');

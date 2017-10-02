@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -60,6 +60,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+    public function showRegistrationForm()
+    {
+        return view('personal.register');
+    }
+
     protected function create(array $data)
     {
         return User::create([

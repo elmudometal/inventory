@@ -6,12 +6,12 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{ asset('/img/avatar.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i>
-          {{ trans('adminlte_lang::message.online') }}</a>
+            En Línea</a>
         </div>
       </div>
     @endif
@@ -50,7 +50,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Proveedores</a></li>
+            <li><a href="{{ url('/personal') }}"><i class="fa fa-circle-o"></i>Proveedores</a></li>
             <li><a href="{{ url('/entryAdd') }}"><i class="fa fa-circle-o"></i>Entradas</a></li>
             <li><a href="{{ url('/entry') }}"><i class="fa fa-circle-o"></i>Historial de Entradas</a></li>
           </ul>
@@ -63,7 +63,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/entryAdd') }}"><i class="fa fa-circle-o"></i>Personal</a></li>
+            <li><a href="{{ url('/personal') }}"><i class="fa fa-circle-o"></i>Personal</a></li>
             <li><a href="{{ url('/egressAdd') }}"><i class="fa fa-circle-o"></i>Ordenes de Entrega</a></li>
             <li><a href="{{ url('/egress') }}"><i class="fa fa-circle-o"></i>Historial de Salidas</a></li>
           </ul>
@@ -98,8 +98,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Agregar</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Listado</a></li>
+            <li><a href="{{ url('/register') }}"><i class="fa fa-circle-o"></i>Agregar</a></li>
+            <li><a href="{{ url('/users') }}"><i class="fa fa-circle-o"></i>Listado</a></li>
+            <li><a href="{{ url('/lsit') }}"><i class="fa fa-circle-o"></i>Listado Personal/Proveedores</a></li>
           </ul>
         </li>
       </ul>
