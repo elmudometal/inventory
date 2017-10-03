@@ -31,7 +31,13 @@ Route::get('/entry', 'InventoryController@entry');
 Route::get('/entryAdd', 'InventoryController@entryAdd');
 Route::post('/entryAdd', 'InventoryController@entryNew');
 
-
+Route::get('/egress', 'InventoryController@egress');
+Route::get('/egressAdd', 'InventoryController@egressAdd');
+Route::post('/egressAdd', 'InventoryController@egressNew');
 //personals
 
 Route::get('/registrer', 'Auth\RegisterController@showRegistrationForm');
+Route::get('/list', 'InventoryController@personals');
+Route::get('/personal', 'InventoryController@personal');
+Route::post('/personal', 'InventoryController@personalNew')->name('personal');
+Route::get('/users', 'InventoryController@users');

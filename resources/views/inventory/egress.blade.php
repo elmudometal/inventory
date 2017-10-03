@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Agregar o Editar Producto
+    Salida de Productos
 @endsection
 
 @section('main-content')
@@ -19,21 +19,32 @@
 		                          <!--Contenido-->
                               	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Nueva Venta</h3>
+			<h3>Nueva Salida</h3>
 					</div>
 	</div>
-			<form method="POST" action="http://solinperu.net/sisVentas/public/ventas/venta" accept-charset="UTF-8" autocomplete="off"><input name="_token" value="e8AVUoLiAUlmGfuTCoeeIPvVqXetWnOP5W8FtVT8" type="hidden">
-            <input name="_token" value="e8AVUoLiAUlmGfuTCoeeIPvVqXetWnOP5W8FtVT8" type="hidden">
+  <form method="POST" action="/egressAdd" accept-charset="UTF-8" autocomplete="off">
+    {{ csrf_field() }}
     <div class="row">
-    	<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-    		<div class="form-group">
-            	<label for="cliente">Cliente</label>
-            	<select class="form-control select2" style="width: 100%;">
-                                         <option value="1">Ana Montenegro</option>
-                                          <option value="3">Jose Martinez</option>
-                                          <option value="4">Juan Carlos Arcila</option>
-                                     </select></div>
-            </div>
+    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+      <div class="form-group">
+            <label for="proveedor">Proveedor</label>
+            <select class="form-control select2" name="provider" style="width: 100%;">
+              @foreach ($personals as $personal)
+                <option value="{{ $personal->id }}">{{ $personal->fullname }}</option>
+              @endforeach
+            </select>
+          </div>
+          </div>
+          <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+            <div class="form-group">
+                  <label for="depot">Almacen de Salida</label>
+                  <select class="form-control select2" id="depot" name="depot" style="width: 100%;">
+                    @foreach ($depots as $depot)
+                    <option value="{{ $depot->id }}">{{ $depot->description }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                </div>
     	</div>
 
     <div class="row">
@@ -43,10 +54,10 @@
                     <div class="form-group">
                         <label>Artículo</label>
                         <select class="form-control select2" id="pidarticulo">
-                                                        <option value="4_33_30001.000000">5901234123457 Cable UTP Cat-5</option>
-                                                        <option value="2_1_200.000000">7702004003508 Impresora Epson M300</option>
-                                                        <option value="5_43_15.000000">8412345678909 Cable VGA 2Mt</option>
-                                                    </select>
+                          @foreach ($products as $product)
+                            <option value="{{ $product->id.'_'.$product->max.'_'.$product->price }}">{{ $product->description }}</option>
+                          @endforeach
+                        </select>
                         </div>
                 </div>
                 <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
@@ -63,8 +74,8 @@
                 </div>
                 <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                     <div class="form-group">
-                        <label for="precio_venta">Precio</label>
-                        <input disabled="" name="pprecio" id="pprecio" class="form-control" placeholder="P. venta" type="number">
+                        <label for="pprecio">Precio</label>
+                        <input name="pprecio" id="pprecio" class="form-control" placeholder="Precio" type="number">
                     </div>
                 </div>
 
@@ -88,15 +99,15 @@
                         <tfoot>
                             <tr>
                                 <th colspan="4"><p align="right">TOTAL:</p></th>
-                                <th><p align="right"><span id="total">S/. 0.00</span> <input name="total_venta" id="total_venta" type="hidden"></p></th>
+                                <th><p align="right"><span id="total">$ 0.00</span> <input name="total_venta" id="total_venta" type="hidden"></p></th>
                             </tr>
                             <tr>
                                 <th colspan="4"><p align="right">TOTAL IMPUESTO (18%):</p></th>
-                                <th><p align="right"><span id="total_impuesto">S/. 0.00</span></p></th>
+                                <th><p align="right"><span id="total_impuesto">$ 0.00</span></p></th>
                             </tr>
                             <tr>
                                 <th colspan="4"><p align="right">TOTAL PAGAR:</p></th>
-                                <th><p align="right"><span align="right" id="total_pagar">S/. 0.00</span></p></th>
+                                <th><p align="right"><span align="right" id="total_pagar">$ 0.00</span></p></th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -180,7 +191,7 @@ $(function () {
         subtotal[cont]=(cantidad*precio_venta);
         total=total+subtotal[cont];
 
-        var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_venta[]" value="'+parseFloat(precio_venta).toFixed(2)+'"></td><td align="right">S/. '+parseFloat(subtotal[cont]).toFixed(2)+'</td></tr>';
+        var fila='<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio[]" value="'+parseFloat(precio_venta).toFixed(2)+'"></td><td align="right">$ '+parseFloat(subtotal[cont]).toFixed(2)+'</td></tr>';
         cont++;
         limpiar();
         totales();
@@ -195,7 +206,7 @@ $(function () {
     }
     else
     {
-        alert("Error al ingresar el detalle de la venta, revise los datos del artículo");
+        alert("Error al ingresar el detalle de la orden, revise los datos del artículo");
     }
   }
   function limpiar(){
@@ -204,7 +215,7 @@ $(function () {
   }
   function totales()
   {
-        $("#total").html("S/. " + total.toFixed(2));
+        $("#total").html("$ " + total.toFixed(2));
         $("#total_venta").val(total.toFixed(2));
 
         //Calcumos el impuesto
@@ -218,8 +229,8 @@ $(function () {
         }
         total_impuesto=total*por_impuesto/100;
         total_pagar=total+total_impuesto;
-        $("#total_impuesto").html("S/. " + total_impuesto.toFixed(2));
-        $("#total_pagar").html("S/. " + total_pagar.toFixed(2));
+        $("#total_impuesto").html("$ " + total_impuesto.toFixed(2));
+        $("#total_pagar").html("$ " + total_pagar.toFixed(2));
 
   }
 

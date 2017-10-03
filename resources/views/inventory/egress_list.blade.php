@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Agregar o Editar Producto
+    Listado de Egresos
 @endsection
 
 @section('main-content')
@@ -8,7 +8,7 @@
             <div class="box-header">
               <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                 <h3 class="box-title">Listado de salidas</h3>
-                <a href="{{ url('/entryAdd') }}" class="btn btn-primary">Agregar</a>
+                <a href="{{ url('/egressAdd') }}" class="btn btn-primary">Agregar</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -23,12 +23,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach ($entries as $entry)
+                  @foreach ($egresses as $egress)
                 <tr>
-                  <td>{{ $entry->id }}</td>
-                  <td>{{ $entry->date }}</td>
-                  <td>{{ $entry->depot_id }}</td>
-                  <td>{{ $entry->provider_id }}</td>
+                  <td>{{ $egress->id }}</td>
+                  <td>{{ $egress->date }}</td>
+                  <td>{{ $egress->depot_id }}</td>
+                  <td>{{ $egress->provider_id }}</td>
                 </tr>
                 @endforeach
                 </tbody>

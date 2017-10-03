@@ -27,8 +27,9 @@
     		<div class="form-group">
             	<label for="proveedor">Proveedor</label>
             	<select class="form-control select2" name="provider" style="width: 100%;">
-                <option value="5">Soluciones Innovadoras Perú S.A.C</option>
-                <option value="6">Inversiones SantaAna S.A.C</option>
+                @foreach ($personals as $personal)
+                  <option value="{{ $personal->id }}">{{ $personal->fullname }}</option>
+                @endforeach
               </select>
             </div>
             </div>
