@@ -22,7 +22,7 @@
             <a href="/depotAdd" class="small-box-footer">Ir a Agregar Alamacen <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-          @foreach($depots as $depot)  
+          @foreach($depots as $depot)
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-green">
@@ -34,7 +34,7 @@
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">Ir a {{ $depot->description }} <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/depotProduct/{{ $depot->id }}" class="small-box-footer">Ir a {{ $depot->description }} <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
           @endforeach

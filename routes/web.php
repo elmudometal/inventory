@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/depot', 'InventoryController@depot');
 Route::get('/depotAdd', 'InventoryController@depotAdd');
 Route::post('/depotAdd', 'InventoryController@depotNew');
+Route::get('/depotAdd', 'InventoryController@depotAdd');
+Route::get('/depotProduct/{id}', 'InventoryController@depotProduct');
+
 
 Route::get('/product', 'InventoryController@product');
 Route::get('/productAdd', 'InventoryController@productAdd');
