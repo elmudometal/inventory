@@ -33,9 +33,10 @@ class InventoryController extends Controller
     	$depot->save();
     	return redirect()->action('InventoryController@depot');
     }
-    public function depotProduct()
+    public function depotProduct($depot_id)
     {
         $data['products'] = Product::all();
+        $data['depots'] = Depot::find($depot_id);
         return view('depot.products', $data);
     }
     public function product()
