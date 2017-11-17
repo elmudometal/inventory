@@ -16,6 +16,11 @@ use App\EgressDetail;
 class InventoryController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function depot()
     {
         $data['depots'] = Depot::all();
@@ -47,6 +52,10 @@ class InventoryController extends Controller
     public function productAdd()
     {
         return view('product.add');
+    }
+    public function productEdit()
+    {
+        return view('product.edit');
     }
     public function productNew(Request $values)
     {

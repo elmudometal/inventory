@@ -28,6 +28,8 @@ Route::get('/depotProduct/{id}', 'InventoryController@depotProduct');
 
 Route::get('/product', 'InventoryController@product');
 Route::get('/productAdd', 'InventoryController@productAdd');
+Route::get('/productEdit/{id}', 'InventoryController@productEdit');
+Route::put('/productEdit/{id}', 'InventoryController@productSetEdit');
 Route::post('/productAdd', 'InventoryController@productNew');
 
 Route::get('/entry', 'InventoryController@entry');
