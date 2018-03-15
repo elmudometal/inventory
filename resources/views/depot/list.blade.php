@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Listado de Almacenes
+    Listado de Obras
 @endsection
 
 @section('main-content')
@@ -14,12 +14,12 @@
             <div class="inner">
               <h3>{{ count($depots) }}</h3>
 
-              <p>Agregar Alamacen</p>
+              <p>Agregar Obra</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="/depotAdd" class="small-box-footer">Ir a Agregar Alamacen <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/depotAdd" class="small-box-footer">Ir a Agregar Obra <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
           @foreach($depots as $depot)

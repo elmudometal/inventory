@@ -7,7 +7,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Registro de Personal: </h3>
+            <h3 class="box-title">Registro de Proveedor: </h3>
         </div>
                     <form class="form-horizontal" method="POST" action="{{ route('personal') }}">
                         {{ csrf_field() }}
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('role_id') ? ' has-error' : '' }}">
-                            <label for="role_id" class="col-md-4 control-label">RUT:</label>
+                            <label for="role_id" class="col-md-4 control-label">Tipo:</label>
                             <div class="col-md-6">
                               <select name="role_id" class="form-control">
                                 <option value="1">Proveedor</option>
@@ -60,8 +60,28 @@
                                 @endif
                             </div>
                         </div>
-
-
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Telefono:</label>
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control" name="rut" value="{{ old('phone') }}" required autofocus>
+                                @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
+                            <label for="adress" class="col-md-4 control-label">Dirección:</label>
+                            <div class="col-md-6">
+                                <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autofocus>
+                                @if ($errors->has('fullname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('adress') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

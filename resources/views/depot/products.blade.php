@@ -27,7 +27,7 @@
                 <thead>
                 <tr>
                   <th>Código</th>
-                  <th>Descripción</th>
+                  <th>Ítem</th>
                   <th>Precio</th>
                   <th>Stock</th>
                   <th>Entradas</th>
@@ -35,6 +35,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                  @php $totalPrice = $totalStock = $totalEntry = 0; @endphp
                   @foreach ($products as $product)
                 <tr>
                   <td>{{ $product->identifier }}</td>
@@ -44,16 +45,21 @@
                   <td>{{ $product->entries($depots->id) }}</td>
                   <td>{{ $product->egresses($depots->id) }}</td>
                 </tr>
+                @php
+                  $totalPrice += $product->price * $product->stock($depots->id);
+                  $totalStock += $product->stock($depots->id);
+                  $totalEntry += $product->entries($depots->id);
+                @endphp
                 @endforeach
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Código</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Entradas</th>
-                    <th>Salidas</th>
+                    <th></th>
+                    <th>Total:</th>
+                    <th>{{ $totalPrice}}</th>
+                    <th>{{ $totalStock}}</th>
+                    <th>{{ $totalEntry}}</th>
+                    <th></th>
                   </tr>
                 </tfoot>
               </table>
@@ -63,8 +69,7 @@
     <thead>
     <tr>
       <th>Código</th>
-      <th>Descripción</th>
-      <th>Precio</th>
+      <th>Ítem</th>
       <th>Stock</th>
       <th>Oct</th>
       <th>Nov</th>
@@ -76,7 +81,6 @@
     <tr>
       <td>{{ $product->identifier }}</td>
       <td>{{ $product->description }}</td>
-      <td>{{ $product->price }}</td>
       <td>{{ $product->stock($depots->id) }}</td>
       <td>{{ $product->egressesMonth($depots->id,10) }}</td>
       <td>{{ $product->egressesMonth($depots->id,11) }}</td>
@@ -84,17 +88,6 @@
     </tr>
     @endforeach
     </tbody>
-    <tfoot>
-      <tr>
-        <th>Código</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Oct</th>
-        <th>Nov</th>
-        <th>Dic</th>
-      </tr>
-    </tfoot>
   </table>
 </div>
 <div class="tab-pane" id="tab_3-3">
@@ -102,7 +95,7 @@
     <thead>
     <tr>
       <th>Código</th>
-      <th>Descripción</th>
+      <th>Ítem</th>
       <th>Stock</th>
       <th>Precio</th>
       <th>Oct</th>
@@ -129,19 +122,6 @@
     </tr>
     @endforeach
     </tbody>
-    <tfoot>
-      <tr>
-        <th>Código</th>
-        <th>Descripción</th>
-        <th>Stock</th>
-        <th>Precio</th>
-        <th>Oct</th>
-        <th>Nov</th>
-        <th>Dic</th>
-        <th>Gasto Total</th>
-        <th>Total PRSPTO</th>
-      </tr>
-    </tfoot>
   </table>
 </div>
                           <!-- /.tab-content -->

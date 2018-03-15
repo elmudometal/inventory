@@ -150,6 +150,8 @@ class InventoryController extends Controller
       $personal->fullname = $values->fullname;
       $personal->email = $values->email;
       $personal->role_id = $values->role_id;
+      $personal->phone = $values->phone;
+      $personal->adress = $values->adress;
       $personal->save();
       return redirect()->action('InventoryController@personals');
     }

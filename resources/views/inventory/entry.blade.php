@@ -8,7 +8,7 @@
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Ingreso Al Almacen</h3>
+                  <h3 class="box-title">Ingreso a Obra</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -36,7 +36,7 @@
 
             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
           		<div class="form-group">
-                  	<label for="depot">Almacen a Ingresa</label>
+                  	<label for="depot">Obra a Ingresa</label>
                   	<select class="form-control select2" id="depot" name="depot" style="width: 100%;">
                       @foreach ($depots as $depot)
                       <option value="{{ $depot->id }}">{{ $depot->description }}</option>

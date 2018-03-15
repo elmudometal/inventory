@@ -16,28 +16,28 @@
               <table id="listProduct" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>id</th>
-                  <th>Fecha</th>
+                  <th>Salida</th>
                   <th>almacen</th>
-                  <th>Personal</th>
+                  <th>Supervisor</th>
+                  <th>Fecha</th>
                 </tr>
                 </thead>
                 <tbody>
                   @foreach ($egresses as $egress)
                 <tr>
                   <td>{{ $egress->id }}</td>
+                  <td>{{ $egress->provider->fullname }}</td>
+                  <td>{{ $egress->depot->description }}</td>
                   <td>{{ $egress->date }}</td>
-                  <td>{{ $egress->depot_id }}</td>
-                  <td>{{ $egress->provider_id }}</td>
                 </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>id</th>
-                    <th>Fecha</th>
+                    <th>Salida</th>
                     <th>almacen</th>
                     <th>Personal</th>
+                    <th>Fecha</th>
                   </tr>
                 </tfoot>
               </table>

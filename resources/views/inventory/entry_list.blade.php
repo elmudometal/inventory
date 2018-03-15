@@ -16,10 +16,9 @@
               <table id="listProduct" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>id</th>
+                  <th>Entrada</th>
                   <th>Fecha</th>
-                  <th>almacen</th>
-                  <th>Proveedor</th>
+                  <th>Obra</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,8 +26,7 @@
                 <tr>
                   <td>{{ $entry->id }}</td>
                   <td>{{ $entry->date }}</td>
-                  <td>{{ $entry->depot_id }}</td>
-                  <td>{{ $entry->provider_id }}</td>
+                  <td>{{ $entry->depot->description }}</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -37,7 +35,6 @@
                     <th>id</th>
                     <th>Fecha</th>
                     <th>almacen</th>
-                    <th>Proveedor</th>
                   </tr>
                 </tfoot>
               </table>

@@ -31,15 +31,15 @@
         <li class="header">Menu Principal</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-share"></i> <span>Almacen</span>
+            <i class="fa fa-share"></i> <span>Obra</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/depot') }}"><i class="fa fa-circle-o"></i>Almacen</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>
-            <li><a href="{{ url('/product') }}"><i class="fa fa-circle-o"></i>Productos</a></li>
+            <li><a href="{{ url('/depot') }}"><i class="fa fa-circle-o"></i>Obra</a></li>
+            <!--<li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>
+            <li><a href="{{ url('/product') }}"><i class="fa fa-circle-o"></i>Productos</a></li>-->
           </ul>
         </li>
         <li class="treeview">
@@ -63,8 +63,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/personal') }}"><i class="fa fa-circle-o"></i>Personal</a></li>
-            <li><a href="{{ url('/egressAdd') }}"><i class="fa fa-circle-o"></i>Ordenes de Entrega</a></li>
+            <!--<li><a href="{{ url('/personal') }}"><i class="fa fa-circle-o"></i>Personal</a></li>-->
+            <li><a href="{{ url('/egressAdd') }}"><i class="fa fa-circle-o"></i>Salidas</a></li>
             <li><a href="{{ url('/egress') }}"><i class="fa fa-circle-o"></i>Historial de Salidas</a></li>
           </ul>
         </li>
