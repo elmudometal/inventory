@@ -40,7 +40,7 @@
                   <label for="depot">Obra</label>
                   <select class="form-control select2" id="depot" name="depot" style="width: 100%;">
                     @foreach ($depots as $depot)
-                    <option value="{{ $depot->id }}">{{ $depot->description }}</option>
+                    <option value="{{ $depot->id }}">{{ $depot->name }}</option>
                     @endforeach
                   </select>
                 </div>

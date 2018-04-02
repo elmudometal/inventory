@@ -17,7 +17,9 @@ class CreatePersonalsTable extends Migration
             $table->increments('id');
             $table->string('rut',30);
             $table->string('fullname',120);
+            $table->string('phone',80);
             $table->string('email',130);
+            $table->text('fullname');
             $table->integer('role_id')->unsigned();
             $table->timestamps();
         });

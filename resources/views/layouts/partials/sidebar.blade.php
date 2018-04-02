@@ -50,7 +50,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/personal') }}"><i class="fa fa-circle-o"></i>Proveedores</a></li>
+            <li><a href="{{ url('/provider') }}"><i class="fa fa-circle-o"></i>Proveedores</a></li>
             <li><a href="{{ url('/entryAdd') }}"><i class="fa fa-circle-o"></i>Entradas</a></li>
             <li><a href="{{ url('/entry') }}"><i class="fa fa-circle-o"></i>Historial de Entradas</a></li>
           </ul>
@@ -76,15 +76,25 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Entradas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Salidas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Historial</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Existencias</a></li>
+            <li><a href="/inventory"><i class="fa fa-circle-o"></i>General</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-share"></i> <span>Reprtes</span>
+            <i class="fa fa-share"></i> <span>Herramientas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/inventory"><i class="fa fa-circle-o"></i>Maestros</a></li>
+            <li><a href="/inventory"><i class="fa fa-circle-o"></i>Ayudantes</a></li>
+            <li><a href="/inventory"><i class="fa fa-circle-o"></i>Electricos</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Reportes</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

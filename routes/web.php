@@ -43,6 +43,9 @@ Route::post('/egressAdd', 'InventoryController@egressNew');
 
 Route::get('/registrer', 'Auth\RegisterController@showRegistrationForm');
 Route::get('/list', 'InventoryController@personals');
+Route::get('/provider', 'InventoryController@providers');
+Route::get('/providerEdit/{id}', 'InventoryController@personalEdit');
+Route::put('/providerEdit/{id}', 'InventoryController@personalSetEdit');
 Route::get('/personal', 'InventoryController@personal');
 Route::post('/personal', 'InventoryController@personalNew')->name('personal');
 Route::get('/users', 'InventoryController@users');

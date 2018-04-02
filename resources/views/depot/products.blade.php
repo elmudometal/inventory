@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Inventario del Almacen
+    Inventario del {{$depots->name }}
 @endsection
 
 @section('main-content')
 <div class="box">
             <div class="box-header">
               <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                <h3 class="box-title">Inventario:</h3>
+                <h3 class="box-title">Obra: {{$depots->name }}</h3>
               </div>
             </div>
             <!-- /.box-header -->
@@ -18,7 +18,7 @@
                             <li class="active"><a href="#tab_1-1" data-toggle="tab">General</a></li>
                             <li><a href="#tab_2-2" data-toggle="tab">Cantidad / Mes</a></li>
                             <li><a href="#tab_3-3" data-toggle="tab">Costo / Mes</a></li>
-                            <li class="pull-left header"><i class="fa fa-th"></i> Almacen: {{$depots->description}}</li>
+                            <li class="pull-left header"><i class="fa fa-th"></i> Obra: {{$depots->name }} #{{$depots->nproject }}</li>
                           </ul>
                           <div class="tab-content">
 
@@ -30,6 +30,7 @@
                   <th>Ítem</th>
                   <th>Precio</th>
                   <th>Stock</th>
+                  <th>Total</th>
                   <th>Entradas</th>
                   <th>Salidas</th>
                 </tr>
@@ -42,6 +43,7 @@
                   <td>{{ $product->description }}</td>
                   <td>{{ $product->price }}</td>
                   <td>{{ $product->stock($depots->id) }}</td>
+                  <td>{{ $product->stock($depots->id)*$product->price }}</td>
                   <td>{{ $product->entries($depots->id) }}</td>
                   <td>{{ $product->egresses($depots->id) }}</td>
                 </tr>
@@ -55,9 +57,10 @@
                 <tfoot>
                   <tr>
                     <th></th>
+                    <th></th>
                     <th>Total:</th>
-                    <th>{{ $totalPrice}}</th>
                     <th>{{ $totalStock}}</th>
+                    <th>{{ $totalPrice}}</th>
                     <th>{{ $totalEntry}}</th>
                     <th></th>
                   </tr>

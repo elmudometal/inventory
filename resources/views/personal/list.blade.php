@@ -1,61 +1,66 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Agregar o Personal
+    Agregar Personal
 @endsection
 
 @section('main-content')
-<div class="box">
-            <div class="box-header">
-              <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                <h3 class="box-title">Listado del Personal</h3>
+    <div class="box">
+        <div class="box-header">
+            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                <h3 class="box-title">Listado de {{ isset($type) ? $type:'Personal' }}</h3>
                 <a href="{{ url('/personal') }}" class="btn btn-primary">Agregar</a>
-              </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="listPersonals" class="table table-bordered table-striped">
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="listPersonals" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Id</th>
-                  <th>RUT</th>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <td></td>
-                </tr>
-                </thead>
-                <tbody>
-                  @foreach ($personals as $personal)
-                <tr>
-                  <td>{{ $personal->id }}</td>
-                  <td>{{ $personal->rut }}</td>
-                  <td>{{ $personal->fullname }}</td>
-                  <td>{{ $personal->email }}</td>
-                  <td></td>
-                </tr>
-                @endforeach
-                </tbody>
-                <tfoot>
-                  <tr>
                     <th>Id</th>
                     <th>RUT</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <td></td>
-                  </tr>
+                    <td>Acciones</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($personals as $personal)
+                    <tr>
+                        <td>{{ $personal->id }}</td>
+                        <td>{{ $personal->rut }}</td>
+                        <td>{{ $personal->fullname }}</td>
+                        <td>{{ $personal->email }}</td>
+                        <td>
+                            <a href="{{ url('providerEdit/'.$personal->id.'') }}" title=" Editar"
+                               class="btn btn-warning">
+                                <i class="fa fa-fw fa-edit"></i> <span class="text-muted"></span> Editar
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <td>Acciones</td>
+                </tr>
                 </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
 @endsection
 @section('footer_scripts')
-<script src="{{ url('/js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('/js/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-<script>
-  $(function () {
-    $('#listPersonals').DataTable()
+    <script src="{{ url('/js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('/js/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+    <script>
+        $(function () {
+            $('#listPersonals').DataTable()
 
-  })
-</script>
+        })
+    </script>
 @endsection

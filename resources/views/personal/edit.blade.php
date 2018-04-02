@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-    Agregar o Editar Personal
+    Editar Personal
 @endsection
 
 @section('main-content')
@@ -14,7 +14,7 @@
                         <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
                             <label for="rut" class="col-md-4 control-label">RUT:</label>
                             <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control" name="rut" value="{{ old('rut') }}" required autofocus>
+                                <input id="rut" type="text" class="form-control" name="rut" value="{{ old('rut') ? old('rut') : $personal->rut }}" required autofocus>
                                 @if ($errors->has('rut'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('rut') }}</strong>
@@ -25,7 +25,7 @@
                         <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
                             <label for="fullname" class="col-md-4 control-label">Nombre Completo:</label>
                             <div class="col-md-6">
-                                <input id="fullname" type="text" class="form-control" name="fullname" value="{{ old('fullname') }}" required autofocus>
+                                <input id="fullname" type="text" class="form-control" name="fullname" value="{{ old('fullname') ? old('fullname') : $personal->fullname }}" required autofocus>
                                 @if ($errors->has('fullname'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('fullname') }}</strong>
@@ -51,7 +51,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail:</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') ? old('email') : $personal->email }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -63,7 +63,7 @@
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="phone" class="col-md-4 control-label">Telefono:</label>
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') ? old('phone') : $personal->phone }}" required autofocus>
                                 @if ($errors->has('phone'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('phone') }}</strong>
@@ -74,7 +74,7 @@
                         <div class="form-group{{ $errors->has('adress') ? ' has-error' : '' }}">
                             <label for="adress" class="col-md-4 control-label">Dirección:</label>
                             <div class="col-md-6">
-                                <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') }}" required autofocus>
+                                <input id="adress" type="text" class="form-control" name="adress" value="{{ old('adress') ? old('adress') : $personal->adress }}" required autofocus>
                                 @if ($errors->has('adress'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('adress') }}</strong>
@@ -92,5 +92,4 @@
                     </form>
         <br><br><br>
     </div>
-
 @endsection
