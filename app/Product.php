@@ -56,4 +56,8 @@ class Product extends Model
             var_dump($price);
       //return $price;
     }
+    public function entrys()
+    {
+        return $this->belongsToMany('App\Entry');
+    }
 }

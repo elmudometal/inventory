@@ -10,4 +10,8 @@ class Entry extends Model
   {
       return $this->belongsTo('App\Depot');
   }
+    public function products()
+    {
+        return $this->belongsToMany('App\Product','entry_details')->withPivot('amount', 'quantity');
+    }
 }

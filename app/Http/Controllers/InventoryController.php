@@ -51,9 +51,13 @@ class InventoryController extends Controller
         return view('depot.products', $data);
     }
 
-    public function product()
+    public function product($tipo=null)
     {
-        $data['products'] = Product::all();
+        if(!is_null($tipo)){
+            $data['products'] = Product::Where('type','=',$tipo)->get();
+        }else {
+            $data['products'] = Product::all();
+        }
         return view('product.list', $data);
     }
 
@@ -77,7 +81,7 @@ class InventoryController extends Controller
         $product->price = $values->price;
         $product->type = $values->type;
         $product->save();
-        return redirect()->action('InventoryController@product');
+        return redirect()->action('InventoryController@product', array('id'=>$product->type));
     }
 
     public function entryAdd()
@@ -214,5 +218,10 @@ class InventoryController extends Controller
         } else {
             return redirect()->action('InventoryController@personals');
         }
+    }
+    public function tools()
+    {
+        $data['entries'] = Entry::all();
+        return view('product.tools_list', $data);
     }
 }

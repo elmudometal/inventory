@@ -38,17 +38,19 @@
                     <input type="number" class="form-control" id="max" name="max" placeholder="Stock maximo">
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group hidden">
                   <label for="price" class="col-sm-2 control-label">Precio</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="price" name="price" placeholder="Precio">
+                    <input type="text" value="0" class="form-control" id="price" name="price" placeholder="Precio">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Categoria del Producto:</label>
                   <div class="col-sm-10">
                     <select class="form-control" id="type" name="type" placeholder="Categoria del producto">
-                    	<option value="1">Consumible</option>
+                    	<option value="1">Maestros</option>
+                    	<option value="2">Ayudantes</option>
+                    	<option value="3">Electricas</option>
                     </select>
                   </div>
                 </div>
