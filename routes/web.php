@@ -43,6 +43,15 @@ Route::get('/egressAdd', 'InventoryController@egressAdd');
 Route::post('/egressAdd', 'InventoryController@egressNew');
 //personals
 
+//Box tools
+Route::get('/tools/{id}', 'InventoryController@workers');
+Route::get('/worker/{id}', 'InventoryController@worker');
+Route::get('/workerEdit/{id}', 'InventoryController@workerEdit');
+Route::put('/workerEdit/{id}', 'InventoryController@workerSetEdit');
+Route::get('/box/{id}', 'InventoryController@boxes');
+
+//--
+
 Route::get('/registrer', 'Auth\RegisterController@showRegistrationForm');
 Route::get('/list', 'InventoryController@personals');
 Route::get('/provider', 'InventoryController@providers');

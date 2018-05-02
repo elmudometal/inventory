@@ -171,6 +171,62 @@ class InventoryController extends Controller
         $data['type'] = 'Proveedor';
         return view('personal.list', $data);
     }
+    public function workers($role_id = 3)
+    {
+        $workers =array('3' => 'Maestro','4' => 'Ayudantes', '5' => 'Electricos');
+        $data['personals'] = Personal::where('role_id', '=', $role_id)->get();
+        $data['type'] = $workers[$role_id];
+        $data['role'] = $role_id;
+        return view('box.personal.list', $data);
+    }
+
+    public function worker($role_id)
+    {
+        $workers =array('1' => 'Proveedor','2' => 'Personal', '3' => 'Maestro','4' => 'Ayudantes', '5' => 'Electricos');
+        $data['type'] = $workers[$role_id];
+        $data['role'] = $role_id;
+        return view('box.personal.personal',$data);
+    }
+
+    public function workerEdit($id)
+    {
+        $workers =array('1' => 'Proveedor','2' => 'Personal', '3' => 'Maestro','4' => 'Ayudantes', '5' => 'Electricos');
+        $personal = new Personal;
+        $personal = $personal->find($id);
+        $data['personal'] = $personal;
+        $data['type'] = $workers[$personal->role_id];
+        $data['role'] = $personal->role_id;
+        return view('box.personal.edit', $data);
+    }
+
+    public function workerSetEdit(Request $values)
+    {
+        $personal = new Personal;
+        $personal = $personal->find($values->id);
+        $personal->rut = $values->rut;
+        $personal->fullname = $values->fullname;
+        $personal->email = $values->email;
+        $personal->role_id = $values->role_id;
+        $personal->phone = $values->phone;
+        $personal->adress = $values->adress;
+        $personal->save();
+        if ($values->role_id == 1) {
+            return redirect()->action('InventoryController@providers');
+        } if ($values->role_id >= 2 AND $values->role_id <= 5) {
+        return redirect()->action('InventoryController@workers',array('role_id'=> $values->role_id));
+        }else {
+            return redirect()->action('InventoryController@personals');
+        }
+    }
+
+    public function boxes($personal_id)
+    {
+        $personal = new Personal;
+        $personal = $personal->find($personal_id);
+
+        dd($personal->tools()->get());
+        return view('box.list');
+    }
 
     public function personal()
     {
@@ -189,7 +245,11 @@ class InventoryController extends Controller
         $personal->save();
         if ($values->role_id == 1) {
             return redirect()->action('InventoryController@providers');
-        } else {
+        }
+        elseif ($values->role_id >= 2 AND $values->role_id <= 5) {
+            return redirect()->action('InventoryController@workers',array('role_id'=> $values->role_id));
+        }
+        else {
             return redirect()->action('InventoryController@personals');
         }
     }
