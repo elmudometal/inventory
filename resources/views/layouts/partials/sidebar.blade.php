@@ -95,10 +95,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="/product/1"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/workers/3') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
-                                <a href="/tools/1"><i class="fa fa-circle-o"></i>Precio Caja</a>
+                                <a href="{{ url('/box/3') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-circle-o"></i>Formato para Imprimir</a>
@@ -112,10 +112,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ url('/product/2') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/workers/4') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
-                                <a href="/tools/2"><i class="fa fa-circle-o"></i>Precio Caja</a>
+                                <a href="{{ url('/box/4') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-circle-o"></i>Formato para Imprimir</a>
@@ -129,10 +129,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="/product/3"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/workers/5') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
-                                <a href="/tools/3"><i class="fa fa-circle-o"></i>Precio Caja</a>
+                                <a href="{{ url('/box/4') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-circle-o"></i>Formato para Imprimir</a>
