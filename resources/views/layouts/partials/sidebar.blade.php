@@ -95,7 +95,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ url('/workers/3') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/tools/3') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
                                 <a href="{{ url('/box/3') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>
@@ -112,7 +112,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ url('/workers/4') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/tools/4') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
                                 <a href="{{ url('/box/4') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>
@@ -129,7 +129,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="{{ url('/workers/5') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
+                                <a href="{{ url('/tools/5') }}"><i class="fa fa-circle-o"></i>Control de Herramientas</a>
                             </li>
                             <li>
                                 <a href="{{ url('/box/4') }}"><i class="fa fa-circle-o"></i>Precio Caja</a>

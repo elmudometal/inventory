@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tool;
 use Illuminate\Http\Request;
 use App\Depot;
 use App\Product;
@@ -222,10 +223,12 @@ class InventoryController extends Controller
     public function boxes($personal_id)
     {
         $personal = new Personal;
-        $personal = $personal->find($personal_id);
-
-        dd($personal->tools()->get());
-        return view('box.list');
+        $tools = new Tool;
+        $data['tools'] = $tools->all();
+        $data['personal_id'] = $personal_id;
+        //$q = $tool->first()->personals()->where('personal_id','=','8')->first();
+        //dd($q->pivot->status);
+        return view('box.list', $data);
     }
 
     public function personal()

@@ -37,7 +37,7 @@
           </div>
           <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group">
-                  <label for="depot">Obra</label>
+                  <label for="depot">Obra Destino</label>
                   <select class="form-control select2" id="depot" name="depot" style="width: 100%;">
                     @foreach ($depots as $depot)
                     <option value="{{ $depot->id }}">{{ $depot->name }}</option>

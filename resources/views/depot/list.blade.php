@@ -14,7 +14,7 @@
                     <div class="inner">
                         <h3>{{ count($depots) }}</h3>
 
-                        <p>Agregar Obra</p>
+                        <p>Agregar Obra<br><br><br></p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -29,7 +29,7 @@
                     <div class="small-box bg-green">
                         <div class="inner">
                             <h3>#{{ $depot->nproject }}</h3>
-                            <p>{{ $depot->name }} <br>{{ $depot->adress }}</p>
+                            <p>{{ $depot->name }} <br>{{ $depot->adress }}<br>{{ $depot->supervisor }}</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>

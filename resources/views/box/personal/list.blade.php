@@ -31,18 +31,18 @@
                         <td>{{ $personal->fullname }}</td>
                         <td>{{ $personal->email }}</td>
                         <td>
-                            <a href="{{ url('workerEdit/'.$personal->id.'') }}" title=" Editar"
+                            <a href="{{ url('/workerEdit/'.$personal->id.'') }}" title=" Editar"
                                class="btn btn-warning">
                                 <i class="fa fa-fw fa-edit"></i> <span class="text-muted"></span> Editar
                             </a>
-                            <a href="{{ url('workerEdit/'.$personal->id.'') }}" title=" Editar"
+                            <a href="{{ url('/box/'.$personal->id.'') }}" title=" Editar"
                                class="btn btn-warning">
                                 <i class="fa fa-fw fa-edit"></i> <span class="text-muted"></span> Ver Caja
                             </a>
-                            <a href="{{ url('workerEdit/'.$personal->id.'') }}" title=" Editar"
+                            <!--<a href="{{ url('workerEdit/'.$personal->id.'') }}" title=" Editar"
                                class="btn btn-warning">
                                 <i class="fa fa-fw fa-edit"></i> <span class="text-muted"></span> Cerrar Caja
-                            </a>
+                            </a>-->
                         </td>
                     </tr>
                 @endforeach
