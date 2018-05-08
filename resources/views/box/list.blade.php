@@ -7,8 +7,7 @@
     <div class="box">
         <div class="box-header">
             <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                <h3 class="box-title">Listado de {{ isset($type) ? $type:'Maestro' }}</h3>
-                <a href="{{ url('/worker/') }}" class="btn btn-primary">Entregar</a>
+                <h3 class="box-title">Herramientas de {{ isset($type) ? $type:'Maestro' }}</h3>
             </div>
         </div>
         <!-- /.box-header -->
@@ -17,26 +16,17 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Cant</th>
                     <th>Herramienta</th>
                     <th>Valor</th>
-                    <th>Total</th>
-                    <th>Estatus</th>
                     <td>Descripcion</td>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($tools as $tool)
-                    @php
-                        $box = $tool->personals()->where('personal_id','=',$personal_id)->first();
-                    @endphp
                     <tr>
                         <td>{{ $tool->id }}</td>
-                        <td>{{ isset($box->pivot) ? $box->pivot->quantity :'' }}</td>
                         <td>{{ $tool->descriptions }}</td>
                         <td>{{ $tool->price }}</td>
-                        <td>{{ isset($box->pivot) ? ($box->pivot->quantity * $tool->price) :'0'  }}</td>
-                        <td>{{ isset($box->pivot) ? $box->pivot->status:'' }}</td>
                         <td>
                             <a href="{{ url('workerEdit/'.'') }}" title=" Editar"
                                class="btn btn-warning">
@@ -49,11 +39,8 @@
                 <tfoot>
                 <tr>
                     <th>Id</th>
-                    <th>Cant</th>
                     <th>Herramienta</th>
                     <th>Valor</th>
-                    <th>Total</th>
-                    <th>Estatus</th>
                     <td>Descripcion</td>
                 </tr>
                 </tfoot>

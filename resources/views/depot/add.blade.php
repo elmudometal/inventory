@@ -25,28 +25,28 @@
                     <label for="name" class="col-sm-2 control-label">Nombre:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="name" name="name"
-                               placeholder="Nombre de la Obra">
+                               placeholder="Nombre de la Obra" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="adress" class="col-sm-2 control-label">Dirección:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="adress" name="adress"
-                               placeholder="Direccion de la Obra">
+                               placeholder="Direccion de la Obra" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nproject" class="col-sm-2 control-label">Nro Proyecto:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nproject" name="nproject"
-                               placeholder="Nro del Proyecto">
+                               placeholder="Nro del Proyecto" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="supervisor" class="col-sm-2 control-label">Supervisor:</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="supervisor" name="supervisor"
-                               placeholder="Supervidor de la obra">
+                               placeholder="Supervidor de la obra" required>
                     </div>
                 </div>
                 <div class="form-group hidden">

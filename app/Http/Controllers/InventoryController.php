@@ -106,6 +106,19 @@ class InventoryController extends Controller
         foreach ($values->idarticulo as $key => $product) {
             $detail = new EntryDetail;
             $detail->product_id = $values->idarticulo[$key];
+
+            if($values->idarticulo[$key] == 'x'){
+                $product = new Product;
+                $product->identifier = '_';
+                $product->description = $values->description[$key];
+                $product->min = 1;
+                $product->max = $values->cantidad[$key];
+                $product->price = $values->precio[$key];
+                $product->type = 1;
+                $product->save();
+                $detail->product_id = $product->id;
+            }
+
             $detail->quantity = $values->cantidad[$key];
             $detail->amount = $values->precio[$key];
             $detail->entry_id = $entry->id;
@@ -226,8 +239,6 @@ class InventoryController extends Controller
         $tools = new Tool;
         $data['tools'] = $tools->all();
         $data['personal_id'] = $personal_id;
-        //$q = $tool->first()->personals()->where('personal_id','=','8')->first();
-        //dd($q->pivot->status);
         return view('box.list', $data);
     }
 

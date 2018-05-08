@@ -28,7 +28,7 @@
     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
       <div class="form-group">
             <label for="proveedor">Supervisor</label>
-            <select class="form-control select2" name="provider" style="width: 100%;">
+            <select class="form-control select2" name="provider" style="width: 100%;" required>
               @foreach ($personals as $personal)
                 <option value="{{ $personal->id }}">{{ $personal->fullname }}</option>
               @endforeach
@@ -38,7 +38,7 @@
           <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group">
                   <label for="depot">Obra Destino</label>
-                  <select class="form-control select2" id="depot" name="depot" style="width: 100%;">
+                  <select class="form-control select2" id="depot" name="depot" style="width: 100%;" required>
                     @foreach ($depots as $depot)
                     <option value="{{ $depot->id }}">{{ $depot->name }}</option>
                     @endforeach

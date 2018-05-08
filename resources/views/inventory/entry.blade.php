@@ -26,7 +26,7 @@
                                     <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                                         <div class="form-group">
                                             <label for="proveedor">Proveedor</label>
-                                            <select class="form-control select2" name="provider" style="width: 100%;">
+                                            <select class="form-control select2" name="provider" style="width: 100%;" required>
                                                 @foreach ($personals as $personal)
                                                     <option value="{{ $personal->id }}">{{ $personal->fullname }}</option>
                                                 @endforeach
@@ -38,7 +38,7 @@
                                         <div class="form-group">
                                             <label for="depot">Obra a Ingresa</label>
                                             <select class="form-control select2" id="depot" name="depot"
-                                                    style="width: 100%;">
+                                                    style="width: 100%;" required>
                                                 @foreach ($depots as $depot)
                                                     <option value="{{ $depot->id }}">{{ $depot->name }}</option>
                                                 @endforeach
@@ -54,21 +54,21 @@
                                                 <div class="form-group">
                                                     <label for="nroorden">Orden de Compra</label>
                                                     <input name="nroorden" id="nroorden" class="form-control"
-                                                           placeholder="Orden de Compra" type="text">
+                                                           placeholder="Orden de Compra" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                                                 <div class="form-group">
                                                     <label for="nrofactura">Nro Factura</label>
                                                     <input name="nrofactura" id="nrofactura" class="form-control"
-                                                           placeholder="Nro de Factura" type="text">
+                                                           placeholder="Nro de Factura" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
                                                 <div class="form-group">
                                                     <label for="fechafactura">Fecha</label>
                                                     <input name="fechafactura" id="fechafactura" class="form-control"
-                                                           placeholder="Fecha de Factura" type="date">
+                                                           placeholder="Fecha de Factura" type="date" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -81,6 +81,7 @@
                                                 <div class="form-group">
                                                     <label>Artículo</label>
                                                     <select class="form-control select2" id="pidarticulo">
+                                                        <option value="x">Agregar Nuevo</option>
                                                         @foreach ($products as $product)
                                                             <option value="{{ $product->id }}">{{ $product->description }}</option>
                                                         @endforeach
@@ -185,7 +186,9 @@
             if (idarticulo != "" && cantidad != "" && cantidad > 0 && precio != "") {
                 subtotal[cont] = (cantidad * precio);
                 total = total + subtotal[cont];
-
+                if(idarticulo=='x'){
+                articulo = '<input type="text" name="description[]" required>';
+                }
                 var fila = '<tr class="selected" id="fila' + cont + '"><td><button type="button" class="btn btn-warning" onclick="eliminar(' + cont + ');">X</button></td><td><input type="hidden" name="idarticulo[]" value="' + idarticulo + '">' + articulo + '</td><td><input type="number" name="cantidad[]" value="' + cantidad + '"></td><td><input type="number" name="precio[]" value="' + precio + '"></td><td>' + subtotal[cont] + '</td></tr>';
                 cont++;
                 limpiar();
