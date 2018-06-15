@@ -11,7 +11,7 @@ class Product extends Model
       $entries = DB::table('entries')
             ->join('entry_details', 'entries.id', '=', 'entry_details.entry_id')
             ->where('depot_id','=',$depot_id)
-            ->where('product_id','=',$this->id)
+            ->where('product_id','=',$this->product_id)
             ->sum('quantity');
       return $entries;
     }
@@ -19,7 +19,7 @@ class Product extends Model
       $egresses = DB::table('egresses')
             ->join('egress_details', 'egresses.id', '=', 'egress_details.egress_id')
             ->where('depot_id','=',$depot_id)
-            ->where('product_id','=',$this->id)
+            ->where('product_id','=',$this->product_id)
             ->sum('quantity');
       return $egresses;
     }
@@ -58,6 +58,6 @@ class Product extends Model
     }
     public function entrys()
     {
-        return $this->belongsToMany('App\Entry');
+        return $this->belongsToMany('App\Entry','entry_details', 'id', 'entry_id');
     }
 }

@@ -29,6 +29,7 @@
                     <div class="small-box bg-green">
                         <div class="inner">
                             <h3>#{{ $depot->nproject }}</h3>
+                            <a href="{{ url('/depotEdit',$depot->id) }}" style="color: #fff"><i class="fa fa-fw fa-edit"></i></a>
                             <p>{{ $depot->name }} <br>{{ $depot->adress }}<br>{{ $depot->supervisor }}</p>
                         </div>
                         <div class="icon">

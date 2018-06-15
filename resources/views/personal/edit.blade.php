@@ -9,8 +9,9 @@
         <div class="box-header with-border">
             <h3 class="box-title">Registro de Proveedor: </h3>
         </div>
-                    <form class="form-horizontal" method="POST" action="{{ route('personal') }}">
+                    <form class="form-horizontal" method="POST" action="/providerEdit/{{ isset($personal->id) ? $personal->id : '' }}">
                         {{ csrf_field() }}
+                        {{ method_field('PUT') }}
                         <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
                             <label for="rut" class="col-md-4 control-label">RUT:</label>
                             <div class="col-md-6">
@@ -84,9 +85,12 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
+                                <button type="submit" type="submit" class="btn btn-info"><i class="fa fa-fw fa-save"></i>{{ ( Empty( $personal)  ? 'Guardar' : 'Acutalizar' ) }}</button>
+                                <a class="btn btn-default" href="{{ url('/provider/') }}" role="button"><i
+                                            class="fa fa-fw fa-reply-all"></i>Cancelar</a>
+                                <a href="{{  url('/providerEdit', [$personal->id])}} " class="btn btn-danger pull-right"
+                                   data-method="delete" data-confirm="¿Esta Seguro que Desea Eliminar este Registro?"
+                                   data-token="{{ csrf_token() }}"> <i class="fa fa-fw fa-trash-o"></i>Eliminar</a>
                             </div>
                         </div>
                     </form>

@@ -27,6 +27,8 @@
 <script src="{{ url('/js/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ url('/js/fastclick/lib/fastclick.js') }}"></script>
+<!-- Laravel JS -->
+<script src="{{ url('/js/laravel.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ url('/js/adminlte.min.js') }}"></script>
 @yield('footer_scripts')

@@ -44,10 +44,38 @@ class InventoryController extends Controller
         $depot->save();
         return redirect()->action('InventoryController@depot');
     }
+    public function depotEdit($id)
+    {
+        $data['depot'] = Depot::find($id);
+        return view('depot.edit', $data);
+    }
+    public function depotDelete($id)
+    {
+        $depot = Depot::find($id);
+        $depot->delete();
+        return redirect()->action('InventoryController@depot');
+    }
+
+    public function depotUpdate(Request $values)
+    {
+        $depot = Depot::find($values->id);
+        $depot->name = $values->name;
+        $depot->type = $values->type;
+        $depot->adress = $values->adress;
+        $depot->nproject = $values->nproject;
+        $depot->supervisor = $values->supervisor;
+        $depot->save();
+        return redirect()->action('InventoryController@depot');
+    }
 
     public function depotProduct($depot_id)
     {
-        $data['products'] = Product::all();
+        $data['products'] = new Product();
+        $data['products'] =  $data['products']
+            ->join('entry_details', 'products.id', '=', 'product_id')
+            ->join('entries', 'entries.id', '=', 'entry_id')
+            ->where('depot_id','=',$depot_id)->get();
+        //dd($data['products']);
         $data['depots'] = Depot::find($depot_id);
         return view('depot.products', $data);
     }
@@ -275,6 +303,17 @@ class InventoryController extends Controller
         $data['personal'] = $personal;
         return view('personal.edit', $data);
     }
+    public function personalDelete($id)
+    {
+        $personal = new Personal;
+        $personal = $personal->find($id);
+        $personal->delete();
+        if ($personal->role_id == 1) {
+            return redirect()->action('InventoryController@providers');
+        } else {
+            return redirect()->action('InventoryController@personals');
+        }
+    }
 
     public function personalSetEdit(Request $values)
     {
@@ -297,5 +336,15 @@ class InventoryController extends Controller
     {
         $data['entries'] = Entry::all();
         return view('product.tools_list', $data);
+    }
+    public function inventory()
+    {
+        $data['products'] = new Product();
+        $data['products'] =  $data['products']
+            ->join('entry_details', 'products.id', '=', 'product_id')
+            ->join('entries', 'entries.id', '=', 'entry_id')
+            ->groupby('depot_id')
+            ->get();
+        return view('inventory.inventory', $data);
     }
 }

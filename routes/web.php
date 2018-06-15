@@ -21,9 +21,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/depot', 'InventoryController@depot');
 Route::get('/depotAdd', 'InventoryController@depotAdd');
+Route::get('/depotEdit/{id}', 'InventoryController@depotEdit');
+Route::put('/depotEdit/{id}', 'InventoryController@depotUpdate');
+Route::delete('/depotDelete/{id}', 'InventoryController@depotDelete');
 Route::post('/depotAdd', 'InventoryController@depotNew');
 Route::get('/depotAdd', 'InventoryController@depotAdd');
 Route::get('/depotProduct/{id}', 'InventoryController@depotProduct');
+
+Route::get('/inventory/', 'InventoryController@inventory');
 
 
 Route::get('/product', 'InventoryController@product');
@@ -57,6 +62,7 @@ Route::get('/list', 'InventoryController@personals');
 Route::get('/provider', 'InventoryController@providers');
 Route::get('/providerEdit/{id}', 'InventoryController@personalEdit');
 Route::put('/providerEdit/{id}', 'InventoryController@personalSetEdit');
+Route::delete('/providerEdit/{id}', 'InventoryController@personalDelete');
 Route::get('/personal', 'InventoryController@personal');
 Route::post('/personal', 'InventoryController@personalNew')->name('personal');
 Route::get('/users', 'InventoryController@users');
