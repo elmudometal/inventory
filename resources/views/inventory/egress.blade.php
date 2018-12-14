@@ -142,9 +142,36 @@
 <script>
 $(function () {
     $('.select2').select2();
+
     $('#bt_add').click(function(){
       agregar();
     });
+
+    $('#depot').change(function(){
+        $.ajax({
+            type: "GET",
+            url: "/egressAddProduct/1",
+            dataType: "json",
+        }).done(function(data) {
+            alert("pepe");
+            $.each(data,function(key, registro) {
+                var id = "";
+                var nombre = "";
+
+                $.each(registro, function(key, value) {
+                    console.log(key,value);
+                    //alert(campo + ": " + valor);
+                    /*
+                    if (key == "id") { id = value; }
+                    if (key == "nombre") { nombre = value; }
+                    */
+                });
+            });
+            $("#pidarticulo").append('<option value='+id+'>'+nombre+'</option>');
+        });
+
+    });
+
   });
 
   var cont=0;

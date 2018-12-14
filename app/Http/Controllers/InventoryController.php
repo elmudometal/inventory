@@ -170,6 +170,17 @@ class InventoryController extends Controller
         return view('inventory.egress', $data);
     }
 
+    public function egressAddProduct($depot_id)
+    {
+        $data['products'] = new Product();
+        $data =  $data['products']
+            ->join('entry_details', 'products.id', '=', 'product_id')
+            ->join('entries', 'entries.id', '=', 'entry_id')
+            ->where('depot_id','=',$depot_id)
+            ->get();
+        return $data;
+    }
+
     public function egressNew(Request $values)
     {
         $egress = new Egress;
@@ -340,6 +351,8 @@ class InventoryController extends Controller
     public function inventory()
     {
         $data['products'] = new Product();
+        $data['depots'] = Depot::all();
+        //dd($data['depots']->first()->egresses());
         $data['products'] =  $data['products']
             ->join('entry_details', 'products.id', '=', 'product_id')
             ->join('entries', 'entries.id', '=', 'entry_id')

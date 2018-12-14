@@ -27,6 +27,7 @@ Route::delete('/depotDelete/{id}', 'InventoryController@depotDelete');
 Route::post('/depotAdd', 'InventoryController@depotNew');
 Route::get('/depotAdd', 'InventoryController@depotAdd');
 Route::get('/depotProduct/{id}', 'InventoryController@depotProduct');
+Route::get('/egressAddProduct/{id}', 'InventoryController@egressAddProduct');
 
 Route::get('/inventory/', 'InventoryController@inventory');
 
