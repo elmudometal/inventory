@@ -67,3 +67,11 @@ Route::delete('/providerEdit/{id}', 'InventoryController@personalDelete');
 Route::get('/personal', 'InventoryController@personal');
 Route::post('/personal', 'InventoryController@personalNew')->name('personal');
 Route::get('/users', 'InventoryController@users');
+
+//users
+Route::get('/admin/users/', "UsersController@index");
+Route::get('/admin/users/nuevo/', 'UsersController@create');
+Route::get('/admin/users/{id}/edit', 'UsersController@edit');
+Route::post('/admin/users/', 'UsersController@store');
+Route::put('/admin/users/{id}', 'UsersController@update');
+Route::delete('/admin/users/{id}', 'UsersController@destroy');

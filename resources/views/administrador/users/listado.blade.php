@@ -2,7 +2,7 @@
 @section('contentheader_title', $titulo)
 @section('main-content')
     <div class="col-md-12">
-        <a class="btn btn-success pull-right" href="{{ asset('administrador/users/nuevo/') }}" role="button"><i
+        <a class="btn btn-success pull-right" href="{{ asset('admin/users/nuevo/') }}" role="button"><i
                     class="fa fa-fw fa-newspaper-o"></i> Nuevo</a>
     </div>
     <br><br>
@@ -30,7 +30,7 @@
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->email}}</td>
                 <td>
-                    <a href="{{ url('administrador/users/'.$item->id.'/edit') }}" title=" Editar" class="btn btn-warning">
+                    <a href="{{ url('admin/users/'.$item->id.'/edit') }}" title=" Editar" class="btn btn-warning">
                         <i class="fa fa-fw fa-edit"></i> <span class="text-muted"></span> Editar
                     </a>
                 </td>

@@ -157,8 +157,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/register') }}"><i class="fa fa-circle-o"></i>Agregar</a></li>
-                    <li><a href="{{ url('/users') }}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                    <li><a href="{{ url('/admin/users/nuevo') }}"><i class="fa fa-circle-o"></i>Agregar</a></li>
+                    <li><a href="{{ url('/admin/users') }}"><i class="fa fa-circle-o"></i>Listado</a></li>
                     <li><a href="{{ url('/list') }}"><i class="fa fa-circle-o"></i>Listado Personal/Proveedores</a></li>
                 </ul>
             </li>
